@@ -1,16 +1,317 @@
-/* Здесь вы напишете основную часть стилей страницы.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
-
 .page {
+  font-family: var(--font-inter-variable);
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-variation-settings: 'wght' var(--font-weight-card-text);
+}
+
+.page__width {
+  inline-size: var(--page-width);
+}
+
+.page__text {
+  font-family: var(--font-pressstart2p-regular);
+  font-size: 14px;
+  line-height: 90%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: clamp(20.438rem, 3.85vw + 19.535rem, 23rem);
+  margin: 100px auto;
+  border: var(--border);
+  padding: clamp(7.5rem, 0.751vw + 7.324rem, 8rem) 0;
+  font-family: var(--font-pressstart2p-regular);
+  background-color: var(--background-color);
+}
+
+.header__title {
+  font-weight: 400;
+  font-size: clamp(3.063rem, 1.502vw + 2.71rem, 4.063rem);
+}
+
+.header__subtitle {
+  font-weight: 400;
+  font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: auto;
+}
+
+.card {
+  display: grid;
+  border: var(--border);
+  background-color: var(--background-color);
+}
+
+.card__title {
+  border-bottom: var(--border);
+  padding: 5px 10px;
+  font-size: 18px;
+  font-variation-settings: 'wght' 700;
+}
+
+.card__image-wrapper {
+  position: relative;
+  display: inline-block;
+  border-bottom: var(--border);
+  overflow: hidden;
+}
+
+.card__label {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  opacity: 0.5;
+  color: var(--accent-color);
+  font-family: var(--font-pressstart2p-regular);
+  font-size: 14px;
+  mix-blend-mode: hard-light;
+}
+
+@supports (-webkit-text-stroke: 1px var(--label-stroke-color)) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 2px var(--label-stroke-color);
+    paint-order: stroke fill;
+  }
+}
+
+.card__image {
+  display: block;
+  width: clamp(23.188rem, 30.516vw + 16.035rem, 43.5rem);
+  height: clamp(23.188rem, 30.516vw + 16.035rem, 43.5rem);
+}
+
+.image-grayscale {
+  filter: grayscale(85%);
+}
+
+.image-saturate {
+  filter: saturate(200%);
+}
+
+.image-hue-rotate {
+  filter: hue-rotate(45deg);
+}
+
+.image-invert {
+  filter: invert(80%);
+}
+
+.image-sepia {
+  filter: sepia(90%);
+}
+
+.image-blur {
+  filter: blur(6px);
+}
+
+.image-filter {
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25)) hue-rotate(100deg) blur(2px) saturate(120%) contrast(50%) brightness(150%);
+}
+
+.card__text {
+  padding: 25px;
+  font-size: 18px;
+  background-color: var(--background-color);
+}
+
+.card__description {
+  padding-bottom: 27px;
+}
+
+.card__description-text {
+  padding-bottom: 25px;
+}
+
+.like-button {
+  display: flex;
+  justify-self: end;
+  align-items: center;
+  gap: 4px;
+  border: none;
+}
+
+.card__like-button {
+  position: relative;
+  width: 130px;
+  height: 38px;
+  border: var(--border);
+  color: #fff;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.card__like-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.card__like-button:hover::before {
+  transform: scaleX(1);
+}
+
+.card__like-button:focus {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  outline: none;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.card__icon-button {
+  width: 44px;
+  height: 38px;
+  border: 2px solid transparent;
+  padding: 0;
+  background-color: var(--background-color);
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: #000;
+}
+
+.button__text {
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: difference;
+}
+
+.floppy-button {
+  position: relative; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: clamp(19.25rem, 2.723vw + 18.612rem, 21.063rem);
+  height: 55px;
+  margin-bottom: 100px;
+  border: var(--border);
+  padding: 0;
+  color: #fff;
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.floppy-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.floppy-button:hover::before {
+  transform: scaleX(1);
+}
+
+.floppy-button:focus {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  outline: none;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.icon-button {
+  position: relative;
+  z-index: 2;
+  max-width: 21px;
+  max-height: 21px;
+  mix-blend-mode: difference;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: clamp(21.313rem, 1.127vw + 21.048rem, 22.063rem);
+  height: 191px;
+  padding: 30px;
+}
+
+.dialog:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.dialog-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog-text {
+  font-family: var(--font-pressstart2p-regular);
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.close-button {
+  width: clamp(15.813rem, 3.192vw + 15.064rem, 17.938rem);
+  height: 38px;
+  border: var(--border);
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+.icon-button-close {
+  max-width: 39px;
+  max-height: 39px;
+}
+
+@media (width <= 375px) {
+  .card__label {
+    top: 22px;
+    right: 12px;
+  }
+
+  .floppy-button {
+    flex-direction: column;
+    height: 84px;
+  }
+
+  .icon-button {
+    max-width: 28px;
+    max-height: 28px;
+  }
 }
