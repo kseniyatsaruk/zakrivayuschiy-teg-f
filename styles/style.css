@@ -33,12 +33,12 @@
 }
 
 .header__title {
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-weight-card-text);
   font-size: clamp(3.063rem, 1.502vw + 2.71rem, 4.063rem);
 }
 
 .header__subtitle {
-  font-weight: 400;
+  font-variation-settings: 'wght' var(--font-weight-card-text);
   font-size: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
   text-transform: uppercase;
 }
