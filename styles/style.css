@@ -1,5 +1,5 @@
 .page {
-  font-family: var(--font-inter-variable);
+  font-family: var(--main-font);
   background-image: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
@@ -13,7 +13,7 @@
 }
 
 .page__text {
-  font-family: var(--font-pressstart2p-regular);
+  font-family: var(--accent-font);
   font-size: 14px;
   line-height: 90%;
 }
@@ -28,7 +28,7 @@
   margin: 100px auto;
   border: var(--border);
   padding: clamp(7.5rem, 0.751vw + 7.324rem, 8rem) 0;
-  font-family: var(--font-pressstart2p-regular);
+  font-family: var(--accent-font);
   background-color: var(--background-color);
 }
 
@@ -79,7 +79,7 @@
   z-index: 1;
   opacity: 0.5;
   color: var(--accent-color);
-  font-family: var(--font-pressstart2p-regular);
+  font-family: var(--accent-font);
   font-size: 14px;
   mix-blend-mode: hard-light;
 }
@@ -142,7 +142,7 @@
 
 .like-button {
   display: flex;
-  justify-self: end;
+  justify-content: flex-end;
   align-items: center;
   gap: 4px;
   border: none;
@@ -179,7 +179,7 @@
 .card__like-button:focus {
   box-shadow: 2px 2px 0 var(--accent-color);
   outline: none;
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.3s;
 }
 
 .card__icon-button {
@@ -280,7 +280,7 @@ dialog::backdrop {
 }
 
 .dialog-text {
-  font-family: var(--font-pressstart2p-regular);
+  font-family: var(--accent-font);
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
@@ -292,6 +292,7 @@ dialog::backdrop {
   border: var(--border);
   padding: 0;
   background-color: var(--background-color);
+  text-transform: uppercase;
 }
 
 .icon-button-close {

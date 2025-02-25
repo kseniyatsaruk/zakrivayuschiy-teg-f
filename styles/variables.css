@@ -1,6 +1,6 @@
 :root {
-  --font-inter-variable: 'Inter-Variable', sans-serif;
-  --font-pressstart2p-regular: 'PressStart2P-Regular', sans-serif;
+  --main-font: 'Inter-Variable', sans-serif;
+  --accent-font: 'PressStart2P', sans-serif;
   --page-width: clamp(23.438rem, 30.516vw + 16.285rem, 43.75rem);
   --font-weight-card-title: 700;
   --font-weight-card-text: 400;
